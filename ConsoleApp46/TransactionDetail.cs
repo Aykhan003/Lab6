@@ -6,7 +6,10 @@
 
         public TransactionDetail DeepCopy()
         {
-
+            return new TransactionDetail
+            {
+                Id = Id
+            };
         }
     }
 }
