@@ -8,7 +8,7 @@ internal class LedgerEngine<T>
     {
         _auditLogService = auditLogService;
     }
-
+    [AuditLoggable]
     public void Process(T item)
     {
         Console.WriteLine("Processing...");
