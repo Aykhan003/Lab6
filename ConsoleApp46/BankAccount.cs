@@ -24,4 +24,20 @@ internal class BankAccount
             return _transactions[index];
         }
     }
+    public static explicit operator decimal (BankAccount account)
+    {
+        decimal balance = 0;
+        foreach (var transaction in account._transactions)
+        {
+            if (decimal.TryParse(transaction, out decimal amount))
+            {
+                balance += amount;
+            }
+        }
+        return balance;
+    }
+    public static implicit operator string(BankAccount account)
+    {
+        return $"Account ID: {account.Id}, Owner: {account.Owner}, Transactions: {account.TransactionCount}";
+    }
 }
